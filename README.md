@@ -1,36 +1,108 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Top 20 Criptomoedas - Teste Técnico
 
-## Getting Started
+Aplicação web desenvolvida em Next.js que exibe as top 20 criptomoedas do CoinGecko com funcionalidades avançadas de visualização e análise.
 
-First, run the development server:
+## 🚀 Funcionalidades
+
+- **Lista das Top 20 Criptomoedas** com dados em tempo real
+- **Busca por nome ou símbolo** da moeda
+- **Ordenação** por todas as colunas (rank, nome, preço, variação, market cap)
+- **Paginação** com opções de 5, 10 ou 25 itens por página
+- **Página de detalhes** de cada moeda com gráfico de 7 dias
+- **Tema dark/light** alternável
+- **Design responsivo** com Material-UI
+- **Cache inteligente** com SWR
+- **Loading states** e tratamento de erros
+
+## 🛠️ Tecnologias
+
+- **Next.js 15** - Framework React
+- **TypeScript** - Tipagem estática
+- **Material-UI** - Componentes de interface
+- **SWR** - Cache e sincronização de dados
+- **Chart.js** - Gráficos interativos
+- **Jest** - Testes unitários
+- **Docker** - Containerização
+
+## 📦 Instalação
 
 ```bash
+# Clone o repositório
+git clone <url-do-repositorio>
+
+# Entre na pasta
+cd test-tecnico
+
+# Instale as dependências
+npm install
+
+# Configure as variáveis de ambiente
+cp .env.local.example .env.local
+# Adicione sua API key do CoinGecko
+ 
+# Execute o projeto
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🔧 Variáveis de Ambiente
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```env
+COINGECKO_API_URL=https://api.coingecko.com/api/v3
+COINGECKO_API_KEY=sua_api_key_aqui
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🐳 Docker
 
-## Learn More
+```bash
+# Build da imagem
+docker build -t test-tecnico .
 
-To learn more about Next.js, take a look at the following resources:
+# Execute o container
+docker run -p 3000:3000 test-tecnico
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🧪 Testes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+# Execute os testes
+npm test
 
-## Deploy on Vercel
+# Execute com coverage
+npm run test:coverage
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📱 Uso
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **Página Principal**: Visualize as top 20 criptomoedas
+2. **Busca**: Use o campo de busca para filtrar moedas
+3. **Ordenação**: Clique nos cabeçalhos das colunas para ordenar
+4. **Detalhes**: Clique em uma moeda para ver detalhes e gráfico
+5. **Tema**: Use o botão no header para alternar entre claro/escuro
+
+## 🏗️ Estrutura do Projeto
+
+```
+src/
+├── app/                 # App Router do Next.js
+├── components/          # Componentes React
+├── hooks/              # Custom hooks
+├── services/           # Serviços de API
+├── types/              # Definições TypeScript
+└── contexts/           # Contextos React
+```
+
+## 🚀 Deploy
+
+O projeto possui CI/CD configurado com GitHub Actions que:
+- Executa testes automaticamente
+- Faz build do projeto
+- Deploy automático na branch main
+
+## 👨‍💻 Desenvolvedor
+
+**Lucas Coelho**
+- LinkedIn: [devlucascoelho](https://www.linkedin.com/in/devlucascoelho/)
+
+## 📄 Licença
+
+Este projeto foi desenvolvido como teste técnico.
