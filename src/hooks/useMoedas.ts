@@ -5,7 +5,7 @@ const buscarMoedas = async (url: string): Promise<Moeda[]> => {
   const response = await fetch(url);
   
   if (!response.ok) {
-    throw new Error(`Erro ao buscar moedas: ${response.status}`);
+    throw new Error(`Erro ao buscar as moedas: ${response.status}`);
   }
   
   const data = await response.json();

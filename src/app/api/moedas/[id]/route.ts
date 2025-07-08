@@ -20,7 +20,7 @@ export async function GET(
     );
 
     if (!response.ok) {
-      throw new Error('Erro ao buscar moeda');
+      throw new Error('Erro ao buscar as moeda');
     }
 
     const data = await response.json();
@@ -40,7 +40,7 @@ export async function GET(
   } catch (error: unknown) {
     const message = error instanceof Error ? error.message : 'Erro desconhecido';
     return NextResponse.json(
-      { error: 'Erro ao buscar moeda', details: message },
+      { error: 'Erro ao buscar as moeda', details: message },
       { status: 500 }
     );
   }

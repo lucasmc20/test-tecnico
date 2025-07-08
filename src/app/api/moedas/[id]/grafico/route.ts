@@ -20,7 +20,7 @@ export async function GET(
     );
 
     if (!response.ok) {
-      throw new Error('Erro ao buscar gráfico');
+      throw new Error('Erro ao buscar dados para o gráfico');
     }
 
     const data = await response.json();
@@ -41,7 +41,7 @@ export async function GET(
   } catch (error: unknown) {
     const message = error instanceof Error ? error.message : 'Erro desconhecido';
     return NextResponse.json(
-      { error: 'Erro ao buscar gráfico', details: message },
+      { error: 'Erro ao buscar dados para o gráfico', details: message },
       { status: 500 }
     );
   }
