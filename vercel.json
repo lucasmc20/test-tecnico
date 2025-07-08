@@ -1,0 +1,12 @@
+{
+  "env": {
+    "COINGECKO_API_URL": "https://api.coingecko.com/api/v3",
+    "COINGECKO_API_KEY": "CG-LTBcC1zamACb69xwTKVA32Rj"
+  },
+  "build": {
+    "env": {
+      "COINGECKO_API_URL": "https://api.coingecko.com/api/v3",
+      "COINGECKO_API_KEY": "CG-LTBcC1zamACb69xwTKVA32Rj"
+    }
+  }
+}
