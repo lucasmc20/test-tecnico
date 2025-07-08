@@ -3,10 +3,14 @@ import { NextResponse } from 'next/server';
 const API_URL = 'https://api.coingecko.com/api/v3';
 const API_KEY = process.env.COINGECKO_API_KEY || 'CG-LTBcC1zamACb69xwTKVA32Rj';
 
-export async function GET(request: Request, { params }: { params: { id: string } }) {
+export async function GET(
+  request: Request,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  const { id } = await params;
   try {
     const response = await fetch(
-      `${API_URL}/coins/${params.id}`,
+      `${API_URL}/coins/${id}`,
       {
         headers: {
           'accept': 'application/json',
@@ -33,9 +37,10 @@ export async function GET(request: Request, { params }: { params: { id: string }
     };
 
     return NextResponse.json(moeda);
-  } catch (error) {
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : 'Erro desconhecido';
     return NextResponse.json(
-      { error: 'Erro ao buscar moeda' },
+      { error: 'Erro ao buscar moeda', details: message },
       { status: 500 }
     );
   }

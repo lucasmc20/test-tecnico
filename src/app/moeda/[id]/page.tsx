@@ -51,7 +51,7 @@ export default function DetalhesMoeda() {
   if (!moeda) return <Typography>Moeda não encontrada</Typography>;
 
   const dadosGrafico = {
-    labels: grafico.map((_, index) => `Dia ${index + 1}`),
+    labels: grafico.map((_: number, index: number) => `Dia ${index + 1}`),
     datasets: [
       {
         label: 'Variação de Preço (R$)',

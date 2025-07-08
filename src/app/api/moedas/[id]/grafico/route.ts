@@ -3,10 +3,14 @@ import { NextResponse } from 'next/server';
 const API_URL = 'https://api.coingecko.com/api/v3';
 const API_KEY = process.env.COINGECKO_API_KEY || 'CG-LTBcC1zamACb69xwTKVA32Rj';
 
-export async function GET(request: Request, { params }: { params: { id: string } }) {
+export async function GET(
+  request: Request,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  const { id } = await params;
   try {
     const response = await fetch(
-      `${API_URL}/coins/${params.id}/market_chart?vs_currency=brl&days=7`,
+      `${API_URL}/coins/${id}/market_chart?vs_currency=usd&days=7`,
       {
         headers: {
           'accept': 'application/json',
@@ -34,9 +38,10 @@ export async function GET(request: Request, { params }: { params: { id: string }
     }
 
     return NextResponse.json(precosDiarios);
-  } catch (error) {
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : 'Erro desconhecido';
     return NextResponse.json(
-      { error: 'Erro ao buscar gráfico' },
+      { error: 'Erro ao buscar gráfico', details: message },
       { status: 500 }
     );
   }

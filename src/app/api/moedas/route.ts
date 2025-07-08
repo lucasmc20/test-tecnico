@@ -5,9 +5,10 @@ export async function GET() {
   try {
     const moedas = await obterTop20Moedas();
     return NextResponse.json(moedas);
-  } catch (error) {
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : 'Erro desconhecido';
     return NextResponse.json(
-      { error: 'Erro ao buscar as moedas: ', details: error.message },
+      { error: 'Erro ao buscar moedas', details: message },
       { status: 500 }
     );
   }

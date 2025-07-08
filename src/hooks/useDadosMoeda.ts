@@ -1,5 +1,4 @@
 import useSWR from 'swr';
-import { Moeda } from '@/types/moeda';
 
 const buscarDadosMoeda = async (id: string) => {
   const [moedaRes, graficoRes] = await Promise.all([

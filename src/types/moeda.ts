@@ -23,6 +23,6 @@ export interface Moeda {
   atl: number;
   atl_change_percentage: number;
   atl_date: string;
-  roi: any;
+  roi: null | { times: number; currency: string; percentage: number };
   last_updated: string;
 }

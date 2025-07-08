@@ -62,7 +62,7 @@ export default function ListaMoedas() {
     );
   }
 
-  const criarOrdenador = (propriedade: OrdemPor) => (event: React.MouseEvent<unknown>) => {
+  const criarOrdenador = (propriedade: OrdemPor) => () => {
     const isAsc = ordemPor === propriedade && direcaoOrdem === 'asc';
     setDirecaoOrdem(isAsc ? 'desc' : 'asc');
     setOrdemPor(propriedade);
